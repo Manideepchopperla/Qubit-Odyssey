@@ -87,7 +87,7 @@ const CalculationDetail = () => {
 
       // If no cached data, fetch from server
       try {
-        const response = await fetch(`http://localhost:5000/calculation/${qubitIdx}`);
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL+`calculation/${qubitIdx}`);
 
         if (!response.ok) {
           throw new Error('Failed to fetch calculation data');

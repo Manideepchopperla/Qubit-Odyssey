@@ -37,7 +37,7 @@ const QASMInput = () => {
       const formData = new FormData();
       formData.append('qasm_code', qasmCode);
 
-      const response = await fetch('http://localhost:5000/process', {
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL+'process', {
         method: 'POST',
         body: formData,
       });
