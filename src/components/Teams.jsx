@@ -140,7 +140,7 @@ const Teams = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-6">
             <h1 className="text-4xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-blue-400">
-              Meet Our Team
+               TEAM SHERBROOKE
             </h1>
           </div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">

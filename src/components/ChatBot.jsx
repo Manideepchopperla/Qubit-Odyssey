@@ -9,7 +9,7 @@ const ChatBot = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState([
     {
       type: 'bot',
-      content: "Hello! I'm your Quantum Computing assistant powered by Groq AI. I can help you with questions about quantum mechanics, quantum circuits, qubits, quantum gates, and questions about this Qubit Odyssey project. What would you like to know?",
+      content: "Hello! I'm your Quantum Computing assistant powered by Team Sherbrooke. I can help you with questions about quantum mechanics, quantum circuits, qubits, quantum gates, and questions about this Qubit Odyssey project. What would you like to know?",
       timestamp: new Date()
     }
   ]);
