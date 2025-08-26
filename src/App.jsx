@@ -10,6 +10,7 @@ import About from './components/About';
 import CalculationDetail from './components/CalculationDetail';
 import ErrorBoundary from './components/ErrorBoundary';
 import Footer from './pages/Footer';
+import Teams from './components/Teams';
 
 function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -35,6 +36,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<About />} />
               <Route path="/calculation/:qubitIdx" element={<CalculationDetail />} />
+              <Route path="/teams" element={<Teams />} />
             </Routes>
           </main>
 

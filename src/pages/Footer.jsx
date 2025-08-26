@@ -17,17 +17,20 @@ const Footer = () => {
       <div className="relative max-w-6xl mx-auto px-4 py-12">
         <div className="text-center space-y-6">
           
-          {/* Header with Icon */}
-          {/* <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="p-3 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 rounded-full border border-cyan-500/40">
-              <Atom className="text-cyan-400" size={28} />
+          {/* Hackathon Logo */}
+          <div className="flex justify-center mb-6">
+            <div className="w-20 h-12 md:w-28 md:h-16 lg:w-32 lg:h-18">
+              <img
+                src="https://res.cloudinary.com/dyvplq8wl/image/upload/v1756190191/amaravathi_footer_logo_kaawc0.png"
+                alt="Amaravathi Quantum Valley Logo"
+                className="w-full h-full object-contain filter hover:brightness-110 transition-all duration-300"
+                onError={(e) => {
+                  console.error('Footer logo failed to load');
+                  e.target.style.display = 'none';
+                }}
+              />
             </div>
-            <div className="flex gap-1">
-              <Sparkles className="text-emerald-400" size={16} />
-              <Sparkles className="text-cyan-400" size={12} />
-              <Sparkles className="text-blue-400" size={14} />
-            </div>
-          </div> */}
+          </div>
 
           {/* Main Text */}
           <div className="space-y-4">
