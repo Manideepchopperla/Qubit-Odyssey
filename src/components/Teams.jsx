@@ -157,7 +157,7 @@ const Teams = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-20 text-center">
+        {/* <div className="mt-20 text-center">
           <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
               Ready to explore the quantum realm with us?
@@ -172,7 +172,7 @@ const Teams = () => {
               View Our Project on GitHub
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`
