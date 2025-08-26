@@ -356,7 +356,7 @@ Remember: You must REFUSE to answer any questions not related to quantum computi
             </div>
             <div>
               <h3 className="font-bold text-white">Quantum AI Assistant</h3>
-              <p className="text-xs text-gray-400">Llama 3.1 70B via Groq • Math Enabled</p>
+              <p className="text-xs text-gray-400">Math Rendering Enabled</p>
             </div>
           </div>
           <button 
@@ -481,13 +481,6 @@ Remember: You must REFUSE to answer any questions not related to quantum computi
             >
               <Send size={16} className="text-white" />
             </button>
-          </div>
-          <div className="flex items-center justify-between mt-2 text-xs text-gray-500">
-            <div className="flex items-center gap-2">
-              <Zap size={12} />
-              <span>Powered by Groq AI</span>
-            </div>
-            <span>Math Rendering Enabled</span>
           </div>
         </div>
       </div>
