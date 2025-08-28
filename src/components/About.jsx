@@ -1,4 +1,3 @@
-// src/pages/About.jsx
 import React, { useState } from 'react';
 import { BookOpen, ChevronDown, ChevronRight, Atom, Calculator, Eye, Lightbulb } from 'lucide-react';
 
@@ -12,7 +11,6 @@ const About = () => {
   return (
     <div className="min-h-screen p-4 sm:p-6 lg:p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-6 sm:mb-8 lg:mb-12">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-blue-400 mb-3 sm:mb-4">
             Brief Explanation
@@ -22,9 +20,8 @@ const About = () => {
           </p>
         </div>
 
-        {/* Main Content */}
+
         <div className="space-y-4 sm:space-y-6">
-          {/* Core Concepts */}
           <ConceptCard
             title="Core Concepts"
             icon={Lightbulb}
@@ -59,7 +56,6 @@ const About = () => {
             </div>
           </ConceptCard>
 
-          {/* Step-by-Step Example */}
           <ConceptCard
             title="Step-by-Step with Example: Bell State Analysis"
             icon={Calculator}
@@ -177,7 +173,6 @@ const About = () => {
             </div>
           </ConceptCard>
 
-          {/* Bloch Sphere Plotting */}
           <ConceptCard
             title="How to Plot a Qubit State on the Bloch Sphere"
             icon={Eye}
@@ -198,18 +193,18 @@ const About = () => {
                     A single-qubit density matrix ρ can be expressed in terms of the Bloch vector <span className="font-mono text-cyan-300">r⃗ = (x, y, z)</span>:
                   </p>
                   <div className="bg-gray-900/50 rounded-lg p-3 sm:p-4 font-mono text-cyan-300 text-center mb-3 sm:mb-4 text-sm sm:text-base">
-                    ρ = (1/2)(I + xσₓ + yσᵧ + zσᵤ)
+                    ρ = (1/2)(I + xσₓ + yσᵧ + zσ𝓏)
                   </div>
                   <div className="text-gray-300 space-y-2 text-sm sm:text-base">
                     <p>Where:</p>
                     <p>• <span className="font-mono text-cyan-300">I</span> = 2 × 2 identity matrix</p>
-                    <p>• <span className="font-mono text-cyan-300">σₓ, σᵧ, σᵤ</span> = Pauli matrices</p>
+                    <p>• <span className="font-mono text-cyan-300">σₓ, σᵧ, σ𝓏</span> = Pauli matrices</p>
                   </div>
                   <p className="text-sm sm:text-base text-gray-300 mt-3 sm:mt-4">The components of the Bloch vector are calculated as:</p>
                   <div className="bg-gray-900/50 rounded-lg p-3 sm:p-4 font-mono text-cyan-300 text-center space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <div>x = Tr(ρσₓ)</div>
                     <div>y = Tr(ρσᵧ)</div>
-                    <div>z = Tr(ρσᵤ)</div>
+                    <div>z = Tr(ρσ𝓏)</div>
                   </div>
                   <p className="text-sm sm:text-base text-gray-300 mt-3 sm:mt-4">These traces give real numbers between −1 and 1.</p>
                 </div>
@@ -247,7 +242,7 @@ const About = () => {
                         ]}
                       />
                       <Matrix 
-                        variable="σᵤ"
+                        variable="σ𝓏"
                         rows={[
                           ['1', '0'],
                           ['0', '-1']
@@ -261,7 +256,6 @@ const About = () => {
                     <p className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Using the formula <span className="font-mono text-cyan-300">x = Tr(ρσₓ)</span>, etc.</p>
                     
                     <div className="space-y-4 sm:space-y-6">
-                      {/* Compute x */}
                       <div className="bg-gray-800/50 rounded-xl p-4 sm:p-6 border border-gray-700/30">
                                                 <h6 className="text-sm sm:text-base font-semibold text-cyan-400 mb-2 sm:mb-3">• Compute x = Tr(ρ₁σₓ):</h6>
                         <div className="space-y-3 sm:space-y-4">
@@ -307,7 +301,6 @@ const About = () => {
                         </div>
                       </div>
 
-                      {/* Compute y */}
                       <div className="bg-gray-800/50 rounded-xl p-4 sm:p-6 border border-gray-700/30">
                         <h6 className="text-sm sm:text-base font-semibold text-cyan-400 mb-2 sm:mb-3">• Compute y = Tr(ρ₁σᵧ):</h6>
                         <div className="space-y-3 sm:space-y-4">
@@ -321,16 +314,16 @@ const About = () => {
                         </div>
                       </div>
 
-                      {/* Compute z */}
+
                       <div className="bg-gray-800/50 rounded-xl p-4 sm:p-6 border border-gray-700/30">
-                        <h6 className="text-sm sm:text-base font-semibold text-cyan-400 mb-2 sm:mb-3">• Compute z = Tr(ρ₁σᵤ):</h6>
+                        <h6 className="text-sm sm:text-base font-semibold text-cyan-400 mb-2 sm:mb-3">• Compute z = Tr(ρ₁σ𝓏):</h6>
                         <div className="space-y-3 sm:space-y-4">
                           <div className="bg-gray-900/50 rounded-lg p-3 sm:p-4 font-mono text-cyan-300 text-center text-sm sm:text-base">
-                            ρ₁σᵤ = (1/2)I · σᵤ = (1/2)σᵤ
+                            ρ₁σ𝓏 = (1/2)I · σ𝓏 = (1/2)σ𝓏
                           </div>
                           <p className="text-sm sm:text-base text-gray-300">Trace diagonal elements:</p>
                           <div className="bg-gray-900/50 rounded-lg p-3 sm:p-4 font-mono text-cyan-300 text-center text-sm sm:text-base">
-                            z = Tr(ρ₁σᵤ) = (1/2)(1 + (-1)) = (1/2) × 0 = 0
+                            z = Tr(ρ₁σ𝓏) = (1/2)(1 + (-1)) = (1/2) × 0 = 0
                           </div>
                         </div>
                       </div>
@@ -370,7 +363,7 @@ const About = () => {
   );
 };
 
-// Matrix component for proper mathematical formatting - Made responsive
+
 const Matrix = ({ variable, coefficient = null, rows, className = "" }) => {
   const maxCols = Math.max(...rows.map(row => row.length));
   
@@ -383,14 +376,13 @@ const Matrix = ({ variable, coefficient = null, rows, className = "" }) => {
             <span className="text-sm sm:text-base lg:text-xl whitespace-nowrap">({coefficient})</span>
           )}
           <div className="relative">
-            {/* Left bracket */}
+
             <div className="absolute left-0 top-0 h-full w-1 flex flex-col">
               <div className="h-1 w-3 sm:w-4 border-t-2 border-l-2 border-cyan-400"></div>
               <div className="flex-1 w-1 border-l-2 border-cyan-400"></div>
               <div className="h-1 w-3 sm:w-4 border-b-2 border-l-2 border-cyan-400"></div>
             </div>
             
-            {/* Matrix content */}
             <div className="px-4 sm:px-6 py-2">
               <div className="space-y-1">
                 {rows.map((row, i) => (
@@ -405,7 +397,6 @@ const Matrix = ({ variable, coefficient = null, rows, className = "" }) => {
               </div>
             </div>
             
-            {/* Right bracket */}
             <div className="absolute right-0 top-0 h-full w-1 flex flex-col">
               <div className="h-1 w-3 sm:w-4 border-t-2 border-r-2 border-cyan-400 ml-[-8px] sm:ml-[-12px]"></div>
               <div className="flex-1 w-1 border-r-2 border-cyan-400"></div>
@@ -418,7 +409,6 @@ const Matrix = ({ variable, coefficient = null, rows, className = "" }) => {
   );
 };
 
-// Reusable Components - Made responsive
 const ConceptCard = ({ title, icon: Icon, children, expanded, onToggle }) => {
   return (
     <div className="bg-gray-900/60 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-cyan-500/20 shadow-2xl shadow-cyan-500/10 overflow-hidden">

@@ -1,20 +1,15 @@
-// src/components/ChatButton.jsx
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 
 const ChatButton = ({ onClick }) => {
   return (
     <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 flex flex-col items-center">
-      {/* "Need Help!" text with typewriter effect */}
-      {/* <div className="mb-3 px-3 py-2 bg-gray-900/95 backdrop-blur-sm border border-cyan-500/30 rounded-lg shadow-lg shadow-cyan-500/20"> */}
         <div className="typewriter-container relative overflow-hidden">
           <span className="typewriter-text text-white text-[3px] md:text-xs font-bold tracking-wide">
             Need Help!
           </span>
         </div>
-      {/* </div> */}
 
-      {/* Chat Button */}
       <button
         onClick={onClick}
         className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 rounded-full shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 flex items-center justify-center group transform hover:scale-110"

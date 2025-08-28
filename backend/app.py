@@ -68,7 +68,6 @@ def process():
     if not qasm_str:
         return jsonify({"error": "QASM code is required"}), 400
 
-    # Save last QASM string in last_results for recalculation later
     last_results["last_qasm"] = qasm_str
 
     try:

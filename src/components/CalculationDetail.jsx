@@ -14,11 +14,10 @@ const CalculationDetail = () => {
 
   const qubitData = results?.qubits?.find(q => q.idx === Number(qubitIdx));
 
-  // Animated scroll to top when component mounts
   useEffect(() => {
-    // Start from the bottom of the page
+
     const startFromBottom = () => {
-      // Get the full height of the document
+
       const documentHeight = Math.max(
         document.body.scrollHeight,
         document.body.offsetHeight,
@@ -27,10 +26,8 @@ const CalculationDetail = () => {
         document.documentElement.offsetHeight
       );
       
-      // Start at the bottom
       window.scrollTo(0, documentHeight);
       
-      // Wait a bit then start the smooth scroll animation
       setTimeout(() => {
         animateScrollToTop();
       }, 100);
@@ -40,7 +37,7 @@ const CalculationDetail = () => {
       const startPosition = window.pageYOffset;
       const targetPosition = 0;
       const distance = startPosition - targetPosition;
-      const duration = 1200; // 1.2 seconds - adjust this for speed
+      const duration = 1200; 
       let startTime = null;
 
       const easeInOutCubic = (t) => {
@@ -65,7 +62,6 @@ const CalculationDetail = () => {
       requestAnimationFrame(animation);
     };
 
-    // Execute after a small delay to ensure content is rendered
     const timer = setTimeout(() => {
       startFromBottom();
     }, 50);
@@ -77,7 +73,6 @@ const CalculationDetail = () => {
     const fetchCalculation = async () => {
       if (!qubitIdx) return;
 
-      // First, try to get cached calculation data
       const cachedData = getCalculationData(qubitIdx);
       if (cachedData) {
         setCalculationData(cachedData);
@@ -85,7 +80,6 @@ const CalculationDetail = () => {
         return;
       }
 
-      // If no cached data, fetch from server
       try {
         const response = await fetch(import.meta.env.VITE_BACKEND_URL+`calculation/${qubitIdx}`);
 
@@ -96,7 +90,6 @@ const CalculationDetail = () => {
         const html = await response.text();
         setCalculationData(html);
         
-        // Save to cache
         saveCalculationData(qubitIdx, html);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unknown error occurred');

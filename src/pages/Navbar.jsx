@@ -19,7 +19,6 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           
-          {/* Left - Qubit Odyssey Brand */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNavigation('/')}>
             <div className="relative">
               <div className="w-7 h-7 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-xl overflow-hidden shadow-lg shadow-cyan-500/25 transform hover:scale-105 transition-all duration-300 border-2 border-cyan-500/30">
@@ -47,7 +46,7 @@ const Navbar = () => {
               onClick={() => handleNavigation('/about')}
               className="text-gray-300 hover:text-white hover:bg-gray-800/60 px-4 py-2 rounded-xl transition-all duration-300 border border-transparent hover:border-gray-700/30 font-medium"
             >
-              About
+              How It Works?
             </button>
             <button
               onClick={() => handleNavigation('/teams')}
@@ -90,7 +89,7 @@ const Navbar = () => {
               onClick={() => handleNavigation('/about')}
               className="text-gray-200 hover:bg-gray-700 w-full text-left px-3 py-2 rounded-lg transition"
             >
-              About
+              How It Works?
             </button>
             <button
               onClick={() => handleNavigation('/teams')}

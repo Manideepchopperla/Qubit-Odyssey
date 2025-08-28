@@ -1,11 +1,9 @@
-// src/components/Footer.jsx
 import React from 'react';
 import { Atom, Sparkles } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="relative bg-gray-900/90 backdrop-blur-xl border-t border-cyan-500/30 overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 25% 25%, #06b6d4 0%, transparent 50%), 
@@ -17,7 +15,6 @@ const Footer = () => {
       <div className="relative max-w-6xl mx-auto px-4 py-12">
         <div className="text-center space-y-6">
           
-          {/* Hackathon Logo */}
           <div className="flex justify-center mb-6">
             <div className="w-20 h-12 md:w-28 md:h-16 lg:w-32 lg:h-18">
               <img
@@ -32,7 +29,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Main Text */}
           <div className="space-y-4">
             <h2 className="text-lg md:text-xl font-semibold text-white tracking-wide">
               Amaravathi Quantum Valley Hackathon 2025
@@ -43,7 +39,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Decorative Elements */}
           <div className="flex items-center justify-center gap-4 mt-8">
             <div className="w-16 h-px bg-gradient-to-r from-transparent to-cyan-500"></div>
             <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></div>
@@ -52,13 +47,11 @@ const Footer = () => {
             <div className="w-16 h-px bg-gradient-to-l from-transparent to-blue-500"></div>
           </div>
 
-          {/* Subtitle */}
           <p className="text-gray-400 text-sm mt-6">
             Pushing the Boundaries of Quantum Innovation
           </p>
         </div>
 
-        {/* Floating Quantum Particles */}
         <div className="absolute inset-0 pointer-events-none">
           {[...Array(8)].map((_, i) => (
             <div

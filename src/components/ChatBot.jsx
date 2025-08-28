@@ -1,4 +1,3 @@
-// src/components/ChatBot.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User, Zap, AlertCircle, Brain } from 'lucide-react';
 import OpenAI from 'openai';
@@ -19,7 +18,6 @@ const ChatBot = ({ isOpen, onClose }) => {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Initialize OpenAI client with Groq endpoint
   const client = new OpenAI({
     apiKey: import.meta.env.VITE_GROQ_API_KEY,
     baseURL: "https://api.groq.com/openai/v1",
@@ -40,7 +38,6 @@ const ChatBot = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
-  // Enhanced system prompt with better LaTeX formatting guidelines
   const systemPrompt = `You are a specialized quantum computing assistant for a website called "Qubit Odyssey" that analyzes quantum circuits and visualizes qubits on Bloch spheres.
 
 STRICT GUIDELINES:
@@ -90,7 +87,6 @@ CRITICAL MATH FORMATTING RULES:
 
 Remember: You must REFUSE to answer any questions not related to quantum computing or this project. Always use proper LaTeX formatting for ALL mathematical expressions.`;
 
-  // Simplified and more robust math rendering function
   const renderMathContent = (content) => {
     if (!content) return content;
 
@@ -98,14 +94,12 @@ Remember: You must REFUSE to answer any questions not related to quantum computi
       const parts = [];
       let lastIndex = 0;
       
-      // Handle block math first ($$...$$)
       const blockMathRegex = /\$\$([\s\S]*?)\$\$/g;
       const inlineMathRegex = /\$([^$\n]+?)\$/g;
       
       let match;
       const mathParts = [];
       
-      // Find all math expressions
       while ((match = blockMathRegex.exec(content)) !== null) {
         mathParts.push({
           type: 'block',
@@ -115,11 +109,9 @@ Remember: You must REFUSE to answer any questions not related to quantum computi
         });
       }
       
-      // Reset regex
       blockMathRegex.lastIndex = 0;
       
       while ((match = inlineMathRegex.exec(content)) !== null) {
-        // Check if this inline math is inside a block math
         const isInsideBlock = mathParts.some(part => 
           part.type === 'block' && match.index >= part.start && match.index < part.end
         );
@@ -134,15 +126,12 @@ Remember: You must REFUSE to answer any questions not related to quantum computi
         }
       }
       
-      // Sort by start position
       mathParts.sort((a, b) => a.start - b.start);
       
-      // Build the rendered content
       let currentIndex = 0;
       const renderedParts = [];
       
       mathParts.forEach((mathPart, index) => {
-        // Add text before this math part
         if (currentIndex < mathPart.start) {
           const textContent = content.slice(currentIndex, mathPart.start);
           renderedParts.push(
@@ -158,7 +147,6 @@ Remember: You must REFUSE to answer any questions not related to quantum computi
           );
         }
         
-        // Add the math part
         if (mathPart.type === 'block') {
           renderedParts.push(
             <div key={`block-${index}`} className="my-3 overflow-x-auto">
@@ -176,7 +164,6 @@ Remember: You must REFUSE to answer any questions not related to quantum computi
         currentIndex = mathPart.end;
       });
       
-      // Add remaining text
       if (currentIndex < content.length) {
         const remainingText = content.slice(currentIndex);
         renderedParts.push(
@@ -196,7 +183,6 @@ Remember: You must REFUSE to answer any questions not related to quantum computi
       
     } catch (error) {
       console.error('Math rendering error:', error);
-      // Fallback to basic rendering
       return (
         <span
           dangerouslySetInnerHTML={{
