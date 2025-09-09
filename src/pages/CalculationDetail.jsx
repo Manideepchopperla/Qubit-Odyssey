@@ -335,36 +335,38 @@ const CalculationDetail = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-700/40 hover:border-cyan-500/40 transition-colors duration-300">
-                        <h4 className="font-rajdhani text-sm font-semibold mb-3 text-cyan-400 flex items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
-                            Purity
-                          </div>
-                          <span className={`text-xs px-2 py-1 rounded-full ${
-                            qubitData.purity_state === "pure" 
-                              ? "bg-green-500/20 text-green-400 border border-green-500/30" 
-                              : "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
-                          }`}>
-                            {qubitData.purity_state === "pure" ? "Pure State" : "Mixed State"}
-                          </span>
-                        </h4>
-                        <p className=" text-xl text-white bg-cyan-500/20 px-4 py-3 rounded-xl border border-cyan-500/30">
-                          {qubitData.purity}
-                        </p>
-                      </div>
-
-                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-700/40 hover:border-pink-500/40 transition-colors duration-300">
-                        <h4 className="font-rajdhani text-sm font-semibold mb-3 text-cyan-400 flex items-center gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
+                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-700/40 hover:border-cyan-500/40 transition-colors duration-300 h-full">
+                      <h4 className="font-rajdhani text-sm font-semibold mb-3 text-cyan-400 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
                           <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
-                          Bloch Vector
-                        </h4>
-                        <p className="font-mono text-sm text-white bg-cyan-500/20 px-4 py-3 rounded-xl break-all border border-pink-500/30">
-                          ({qubitData.bloch_vec})
-                        </p>
-                      </div>
+                          Purity
+                        </div>
+                        <span
+                          className={`text-xs px-2 py-1 rounded-full ${
+                            qubitData.purity_state === "pure"
+                              ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                              : "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
+                          }`}
+                        >
+                          {qubitData.purity_state === "pure" ? "Pure State" : "Mixed State"}
+                        </span>
+                      </h4>
+                      <p className="text-1xl text-white bg-cyan-500/20 px-3 py-2 rounded-xl border border-cyan-500/30">
+                        {qubitData.purity}
+                      </p>
                     </div>
+
+  <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-700/40 hover:border-pink-500/40 transition-colors duration-300 h-full">
+    <h4 className="font-rajdhani text-sm font-semibold mb-3 text-cyan-400 flex items-center gap-2">
+      <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
+      Bloch Vector
+    </h4>
+    <p className="font-mono text-sm text-white bg-cyan-500/20 px-4 py-3 rounded-xl break-all border border-pink-500/30">
+      ({qubitData.bloch_vec})
+    </p>
+  </div>
+</div>
                   </div>
                 </div>
               </div>
@@ -412,11 +414,11 @@ const CalculationDetail = () => {
             className="bg-gray-900/40 backdrop-blur-xl rounded-2xl p-6 lg:p-8 border border-purple-500/30 shadow-2xl shadow-purple-500/20 relative overflow-hidden"
           >
             {/* Quantum Background Pattern */}
-            <div className="absolute inset-0 opacity-3" style={{
+            {/* <div className="absolute inset-0 opacity-3" style={{
               backgroundImage: `linear-gradient(rgba(168, 85, 247, 0.3) 1px, transparent 1px),
                                linear-gradient(90deg, rgba(168, 85, 247, 0.3) 1px, transparent 1px)`,
               backgroundSize: '40px 40px'
-            }}></div>
+            }}></div> */}
             
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-cyan-500/5 to-pink-500/5 rounded-2xl"></div>
 

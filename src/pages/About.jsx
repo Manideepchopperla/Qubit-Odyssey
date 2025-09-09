@@ -69,7 +69,7 @@ const About = () => {
             {/* Quantum Divider */}
             <div className="flex items-center justify-center gap-4 mt-8">
               <div className="w-16 h-px bg-gradient-to-r from-transparent to-purple-500"></div>
-              <Eye className="w-5 h-5 text-cyan-400" />
+              
               <div className="w-20 h-px bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500"></div>
               <Eye className="w-5 h-5 text-cyan-400" />
               <div className="w-16 h-px bg-gradient-to-l from-transparent to-pink-500"></div>
