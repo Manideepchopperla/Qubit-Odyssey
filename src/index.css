@@ -1,15 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Add to your global CSS file or tailwind.config.js */
-@layer utilities {
-  .perspective-1000 {
-    perspective: 1000px;
-  }
-  
-  .perspective-500 {
-    perspective: 500px;
-  }
+body {
+  background: #0a0b1e;
+  color: #FFFFFF;
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 29, 41, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 212, 255, 0.8);
+}
+
+/* Font optimizations */
+.font-orbitron {
+  font-family: 'Orbitron', monospace;
+  font-feature-settings: 'liga', 'kern';
+}
+
+.font-rajdhani {
+  font-family: 'Rajdhani', sans-serif;
+  font-feature-settings: 'liga', 'kern';
 }

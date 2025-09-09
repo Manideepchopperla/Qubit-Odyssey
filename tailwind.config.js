@@ -1,4 +1,3 @@
-// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -7,16 +6,18 @@ export default {
   ],
   theme: {
     extend: {
-      keyframes: {
-        blink: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' },
-        }
+      fontFamily: {
+        'orbitron': ['Orbitron', 'monospace'],
+        'rajdhani': ['Rajdhani', 'sans-serif'],
       },
-      animation: {
-        blink: 'blink 2s ease-in-out infinite',
-        'blink-fast': 'blink 1.5s ease-in-out infinite',
-      }
+      colors: {
+        'space-dark': '#0B0D17',
+        'space-deep': '#151922',
+        'space-card': '#1A1D29',
+        'quantum-cyan': '#00D4FF',
+        'quantum-purple': '#8B5DFF',
+        'quantum-magenta': '#E946CA',
+      },
     },
   },
   plugins: [],

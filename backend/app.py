@@ -3,10 +3,9 @@ import io
 import base64
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
-
 from qiskit import QuantumCircuit, transpile
 from qiskit_aer import Aer
-from qiskit.visualization import plot_bloch_vector
+from qiskit.visualization import plot_bloch_vector, plot_bloch_multivector
 from qiskit.quantum_info import Statevector, partial_trace, purity, DensityMatrix
 
 import numpy as np
@@ -18,6 +17,28 @@ app = Flask(__name__)
 CORS(app)  
 
 last_results = {}
+
+def clean_qasm(qasm_str):
+    """Remove measurement operations and useless creg lines from QASM code."""
+    cleaned_lines = []
+    for line in qasm_str.splitlines():
+        # skip measurement operations
+        if "measure" in line.lower():
+            continue
+        # skip classical register if no measurements
+        
+        cleaned_lines.append(line)
+    return "\n".join(cleaned_lines)
+
+def safe_plot_bloch_vector(bloch_vec, title="Bloch Sphere"):
+    """Plot Bloch vector and mark origin if it’s the maximally mixed state."""
+    fig = plot_bloch_vector(bloch_vec)
+    ax = fig.axes[0]
+    if np.allclose(bloch_vec, [0, 0, 0]):
+        ax.scatter([0], [0], [0], color="red", s=100, label="Mixed state")
+        
+    fig.suptitle(title)
+    return fig
 
 def bloch_vector_from_density_matrix(rho):
     sigma_x = np.array([[0, 1], [1, 0]])
@@ -67,7 +88,8 @@ def process():
     qasm_str = request.form["qasm_code"]
     if not qasm_str:
         return jsonify({"error": "QASM code is required"}), 400
-
+    # remove measurements & cregs
+    qasm_str = clean_qasm(qasm_str)
     last_results["last_qasm"] = qasm_str
 
     try:
@@ -91,9 +113,14 @@ def process():
             traced_rho = partial_trace(full_density, [i for i in range(num_qubits) if i != qubit_idx])
             purity_val = np.real(purity(traced_rho))
             bloch_vec = bloch_vector_from_density_matrix(traced_rho)
+            purity_state = "pure"
+            if(purity_val < 1):
+                purity_state = "mixed"
 
-            fig = plot_bloch_vector(bloch_vec)
-            fig.suptitle(f'Qubit {qubit_idx} Bloch Sphere')
+
+            fig = safe_plot_bloch_vector(bloch_vec, f'Qubit {qubit_idx} Bloch Sphere')
+            # fig = plot_bloch_multivector(bloch_vec)
+            # fig.suptitle(f'Qubit {qubit_idx} Bloch Sphere')
             bloch_img = render_matplotlib_fig(fig)
 
             mat = np.array(traced_rho.data).round(4)
@@ -109,6 +136,7 @@ def process():
             <b>Purity calculation:</b> Tr(ρ²) = {purity_val:.4f}<br>
             <b>Statevector:</b><br>
             {statevector}
+
             """
 
             qubit_data.append({
@@ -116,11 +144,14 @@ def process():
                 "bloch_img": bloch_img,
                 "mat_html": mat_html,
                 "purity": round(purity_val, 4),
+                "purity_state": purity_state,
                 "bloch_vec": ", ".join([f"{x:.4f}" for x in bloch_vec]),
                 "full_math": full_math
             })
 
-        return jsonify({"circ_img": circ_img, "qubits": qubit_data})
+
+            qubit_names = [f"q{i}" for i in range(num_qubits)]
+        return jsonify({"circ_img": circ_img, "qubits": qubit_data,"qubit_names": qubit_names})
 
     except Exception as e:
         return jsonify({"error": f"Processing error: {str(e)}"})
@@ -156,6 +187,7 @@ def calculation(qubit_idx):
 
         reduced_rho = partial_trace(full_density, [i for i in range(num_qubits) if i != qubit_idx])
         purity_val = np.real(purity(reduced_rho))
+        purity_state = "pure" if purity_val >= 0.9999 else "mixed"
         mat = np.array(reduced_rho.data).round(6)
 
         sigma_x = np.array([[0, 1], [1, 0]])

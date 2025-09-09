@@ -43,11 +43,18 @@ const Navbar = () => {
           {/* Right - Desktop Navigation */}
           <div className="hidden md:flex items-center gap-4">
             <button
+              onClick={() => handleNavigation('/circuit')}
+              className="text-gray-300 hover:text-white hover:bg-gray-800/60 px-4 py-2 rounded-xl transition-all duration-300 border border-transparent hover:border-gray-700/30 font-medium"
+            >
+              Ciruit Viz
+            </button>
+            <button
               onClick={() => handleNavigation('/about')}
               className="text-gray-300 hover:text-white hover:bg-gray-800/60 px-4 py-2 rounded-xl transition-all duration-300 border border-transparent hover:border-gray-700/30 font-medium"
             >
               How It Works?
             </button>
+
             <button
               onClick={() => handleNavigation('/teams')}
               className="text-gray-300 hover:text-white hover:bg-gray-800/60 px-4 py-2 rounded-xl transition-all duration-300 border border-transparent hover:border-gray-700/30 font-medium"
@@ -85,6 +92,12 @@ const Navbar = () => {
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
           <div className="md:hidden animate-dropdown bg-gray-800 rounded-b-xl shadow-lg px-4 py-4 mt-1 absolute left-0 w-full flex flex-col items-start z-50">
+            <button
+              onClick={() => handleNavigation('/circuit')}
+              className="text-gray-300 hover:text-white hover:bg-gray-800/60 px-4 py-2 rounded-xl transition-all duration-300 border border-transparent hover:border-gray-700/30 font-medium"
+            >
+              Ciruit Viz
+            </button>
             <button
               onClick={() => handleNavigation('/about')}
               className="text-gray-200 hover:bg-gray-700 w-full text-left px-3 py-2 rounded-lg transition"
