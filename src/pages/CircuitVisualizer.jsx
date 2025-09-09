@@ -233,7 +233,7 @@ const CircuitVisualizer = () => {
         <div className="w-full max-w-10xl mx-auto">
           <div className="relative w-full h-0 pb-[40%] rounded-xl border border-purple-500/40 backdrop-blur-sm overflow-auto">
             <iframe
-              src="./main.html"
+              src="/main.html"
               title="HTML Visualization"
               className="absolute top-0 left-0 w-full h-full border-none overflow-auto"
               style={{
