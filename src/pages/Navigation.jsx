@@ -11,7 +11,7 @@ const Navigation = () => {
   const navItems = [
   { href: "/", label: "Home", icon: Zap },
   { href: "/circuit", label: "Qubit Viz", icon: CircuitBoard },
-  { href: "/teams", label: "Teams", icon: Users },
+  // { href: "/teams", label: "Teams", icon: Users },
   { href: "/about", label: "How It Works ?", icon: Info },
 ];
 
