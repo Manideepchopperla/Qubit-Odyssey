@@ -55,12 +55,12 @@ const Navbar = () => {
               How It Works?
             </button>
 
-            <button
+            {/* <button
               onClick={() => handleNavigation('/teams')}
               className="text-gray-300 hover:text-white hover:bg-gray-800/60 px-4 py-2 rounded-xl transition-all duration-300 border border-transparent hover:border-gray-700/30 font-medium"
             >
               Teams
-            </button>
+            </button> */}
             {/* <button
               onClick={handleGithubClick}
               className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-xl transition-all duration-300 border border-gray-600 hover:border-gray-500"
@@ -104,12 +104,12 @@ const Navbar = () => {
             >
               How It Works?
             </button>
-            <button
+            {/* <button
               onClick={() => handleNavigation('/teams')}
               className="text-gray-200 hover:bg-gray-700 w-full text-left px-3 py-2 rounded-lg transition"
             >
               Teams
-            </button>
+            </button> */}
             {/* <button
               onClick={handleGithubClick}
               className="flex items-center gap-2 text-gray-200 hover:bg-gray-700 w-full text-left px-3 py-2 rounded-lg transition"
