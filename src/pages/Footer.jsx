@@ -1,5 +1,6 @@
 import React from 'react';
 import { Atom, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import quantumHeroBg from '@/assets/quantum-hero-bg.jpg';
 
 const Footer = () => {
@@ -7,16 +8,13 @@ const Footer = () => {
     <footer className="relative overflow-hidden">
       {/* Clean Hero-matching Background */}
       <div className="absolute inset-0">
-        {/* Same background as hero section */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
+          style={{
             backgroundImage: `url(${quantumHeroBg})`,
             filter: 'blur(2px) brightness(0.2)'
           }}
         />
-        
-        {/* Clean overlay matching hero */}
         <div className="absolute inset-0 bg-black/85" />
       </div>
 
@@ -24,32 +22,37 @@ const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400/50 to-transparent"></div>
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        
+
         {/* Main Content */}
         <div className="text-center space-y-8">
-          
-          {/* Logo Section */}
-          <div className="flex justify-center">
-            <div className="w-20 h-14 sm:w-24 sm:h-16">
-              <img
-                src="https://res.cloudinary.com/dyvplq8wl/image/upload/v1756190191/amaravathi_footer_logo_kaawc0.png"
-                alt="Amaravathi Quantum Valley"
-                className="w-full h-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                }}
-              />
+
+          {/* Logo & Brand */}
+          <div className="flex items-center justify-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 via-cyan-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/25">
+              <Zap className="w-5 h-5 text-white" />
             </div>
+            <h2 className="font-orbitron text-xl sm:text-2xl font-bold text-white">
+              Qubit Odyssey
+            </h2>
           </div>
 
-          {/* Title */}
-          <div>
-            <h2 className="font-orbitron text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2">
-              Amaravathi Quantum Valley Hackathon 2025
-            </h2>
-            <p className="font-rajdhani text-base sm:text-lg text-gray-300 font-medium">
-              RGUKT Srikakulam
-            </p>
+          {/* Description */}
+          <p className="font-rajdhani text-sm sm:text-base text-gray-400 max-w-md mx-auto leading-relaxed">
+            An interactive quantum computing learning platform. Visualize quantum circuits,
+            explore qubit states, and understand quantum mechanics through hands-on experimentation.
+          </p>
+
+          {/* Navigation Links */}
+          <div className="flex items-center justify-center gap-6 sm:gap-8">
+            <Link to="/" className="font-rajdhani text-sm text-gray-400 hover:text-cyan-400 transition-colors duration-300">
+              Home
+            </Link>
+            <Link to="/circuit" className="font-rajdhani text-sm text-gray-400 hover:text-cyan-400 transition-colors duration-300">
+              Qubit Viz
+            </Link>
+            <Link to="/about" className="font-rajdhani text-sm text-gray-400 hover:text-cyan-400 transition-colors duration-300">
+              How It Works
+            </Link>
           </div>
 
           {/* Simple Divider */}
@@ -61,9 +64,9 @@ const Footer = () => {
             <div className="w-12 h-px bg-gradient-to-l from-transparent to-cyan-400/60"></div>
           </div>
 
-          {/* Tagline */}
-          <p className="font-rajdhani text-sm text-gray-400 tracking-wide">
-            Quantum Circuit Visualization Platform
+          {/* Copyright */}
+          <p className="font-rajdhani text-xs text-gray-500 tracking-wide">
+            &copy; {new Date().getFullYear()} Qubit Odyssey. Built for quantum exploration.
           </p>
 
         </div>
@@ -74,7 +77,7 @@ const Footer = () => {
             <div
               key={i}
               className={`absolute w-1 h-1 rounded-full opacity-30 ${
-                i % 3 === 0 ? 'bg-purple-400' : 
+                i % 3 === 0 ? 'bg-purple-400' :
                 i % 3 === 1 ? 'bg-cyan-400' : 'bg-blue-400'
               }`}
               style={{
@@ -91,11 +94,11 @@ const Footer = () => {
 
       <style jsx>{`
         @keyframes float {
-          0%, 100% { 
+          0%, 100% {
             transform: translateY(0px);
             opacity: 0.3;
           }
-          50% { 
+          50% {
             transform: translateY(-8px);
             opacity: 0.6;
           }
